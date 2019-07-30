@@ -99,6 +99,7 @@ def build_dict(word_counter):
     -Returns:
         @word2idx: dict, {word: idx}
         @vocab_size: int, size of vocab in the input txt
+        @hashtag_pool: LongTensor, indices of hashtags
     """
     vocab = set([word for word in word_counter])
 #     if remove_digit is True:
@@ -124,7 +125,7 @@ def tweet2seq(word2idx, trainable_tweets, max_seq_length=20):
         @max_seq_length: maximum length of sequence
         **Note: final length of tweet seq will be different for `pad_both_end` settings
     -Returns:
-        None, but original trainable_tweets will have two more keys: 'tweeter_seq'(tensor) and 'hashtag_seq'(list)
+        None, append two keys to original trainable_tweets: 'tweeter_seq'(tensor) and 'hashtag_seq'(list)
     """
     # seq_time, hash_time = 0, 0
     for i, item in enumerate(trainable_tweets):
