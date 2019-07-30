@@ -15,8 +15,8 @@ class TagSpace(nn.Module):
 		self.embed = nn.Embedding(vocab_size, embedding_dim, max_norm=1) # or use w2v/wsabie as pretrained lookup
 		self.embedding_size = embedding_dim # d in paper
 		self.max_seq_length = max_seq_length # l in paper
-		self.margin = margin
-		self.max_iter = max_iter
+		self.margin = margin # margin for warp loss
+		self.max_iter = max_iter # max number of iteration for negative sampling
 		self.window_size = window_size # k in paper
 		self.hidden_size = hidden_size # H in paper
 		self.batch_size = batch_size
